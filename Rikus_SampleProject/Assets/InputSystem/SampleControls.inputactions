@@ -1,0 +1,289 @@
+{
+    "name": "SampleControls",
+    "maps": [
+        {
+            "name": "PlayerControl",
+            "id": "c1748afe-d194-4970-bed1-c6f1b06e075d",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "d4f664fa-9c42-49c8-b31f-2cd83938bbac",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Rest",
+                    "type": "Button",
+                    "id": "451e124a-cb19-4da4-a0e4-eccad93cb269",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Shoot",
+                    "type": "Button",
+                    "id": "a1bf6161-3b7c-4238-80e1-ec3781716ec8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "2D Vector",
+                    "id": "e7f22f43-587b-4cfa-a6a4-50bcac8f93b2",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "7b499dde-dfcc-45f9-8090-08e3598f0e85",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "a158d1f8-1844-4749-8eea-4e41cf39e359",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "4a66f3b3-3ef9-4eca-90bd-8aafbcaebb9e",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "a38cc7d3-face-4c1f-9c86-22fc4fb4ce8d",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "5832c96e-4738-456e-b913-cf0e80212529",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rest",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9cd2d25b-cc1f-4de5-8640-c3334e3e6481",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "CameraControl",
+            "id": "1d7552ad-96bf-486d-9934-99b189cf9938",
+            "actions": [
+                {
+                    "name": "Drag",
+                    "type": "Value",
+                    "id": "a9f308fb-0396-457b-a1d0-25b86e628fd6",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "b4ac4be5-9868-4359-9ab1-56f2733c42f8",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drag",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Arrow",
+                    "id": "e147a7d4-7dad-4944-8af1-d3abc8582177",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drag",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "ebfea491-1abe-475d-a24f-f7ef69c36c06",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drag",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "27e3bdff-88a9-4fd3-b44a-ee58c504eb33",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drag",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "973b445a-19bc-49c8-a759-d30c88d6e63c",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drag",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "be211f06-6462-42f9-9732-a38b8653cdf6",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drag",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        },
+        {
+            "name": "Common",
+            "id": "bbae6ecf-9839-4f6e-9129-552e26dc1142",
+            "actions": [
+                {
+                    "name": "ExitGame",
+                    "type": "Button",
+                    "id": "f3cb2853-de9c-4171-aa0d-463695a9be53",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "EscapeCursor",
+                    "type": "Button",
+                    "id": "95424d18-0902-4449-8b03-bc0a7eeab8e2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "3a694f7e-60ac-485d-884b-b4a0a4b2784e",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ExitGame",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8d0fcd96-3d68-4a83-8df7-bb6b0dec9717",
+                    "path": "<Keyboard>/leftAlt",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "EscapeCursor",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Chat",
+            "id": "de9c9588-c1c6-4724-a906-5c8fbb1a82e1",
+            "actions": [
+                {
+                    "name": "EnterChat",
+                    "type": "Button",
+                    "id": "2cee8d7d-9104-4c83-a0e3-a8847eb8cf41",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "SendChat",
+                    "type": "Button",
+                    "id": "8da17462-d57d-45af-a303-38888dc1cb31",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "bfbf4135-d776-46ff-803b-df51f20d14c8",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "EnterChat",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "78b804d6-e7aa-4672-8da0-7337e1d1e29c",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SendChat",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
