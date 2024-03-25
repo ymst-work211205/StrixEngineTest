@@ -4,10 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static SampleControls;//キー入力判定スクリプト（Assets/InputSystem/SampleControls.cs）
+using SoftGear.Strix.Unity.Runtime;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(CharacterController))]
+#if false
 public class Character : MonoBehaviour, IPlayerControlActions, ICameraControlActions, ICommonActions
+#else
+public class Character : StrixBehaviour, IPlayerControlActions, ICameraControlActions, ICommonActions
+
+#endif
 {
     // カメラ回転制限Struct
     [Serializable]
@@ -92,7 +98,11 @@ public class Character : MonoBehaviour, IPlayerControlActions, ICameraControlAct
                 if (Keyboard.current.spaceKey.wasPressedThisFrame)
                 {
                     // emoteID1～3のいずれかのエモートアクションを再生する
+#if false
                     PlayEmote(UnityEngine.Random.Range(1, 4));
+#else
+                    CallPlayEmote(UnityEngine.Random.Range(1, 4));
+#endif
                 }
             }
         }
@@ -101,10 +111,20 @@ public class Character : MonoBehaviour, IPlayerControlActions, ICameraControlAct
     /// エモートアクション再生
     /// </summary>
     /// <param name="emoteID">エモート指定 1～3の整数</param>
+    [StrixRpc]
     private void PlayEmote(int emoteID)
     {
         _animator.SetInteger("emoteID", emoteID);
         _animator.SetTrigger("Emote");
+    }
+
+    /// <summary>
+    /// RPCによるエモート実行
+    /// </summary>
+    /// <param name="emoteID"></param>
+    private void CallPlayEmote(int emoteID)
+    {
+        RpcToAll(nameof(PlayEmote), emoteID);
     }
 
     /// <summary>
@@ -192,6 +212,11 @@ public class Character : MonoBehaviour, IPlayerControlActions, ICameraControlAct
 
     private void FixedUpdate()
     {
+        if (strixReplicator.roomMember != null)
+        {
+            speechBubble.SetNameTextBubble(strixReplicator.roomMember.GetName());
+        }
+
         UpdateTransform();
     }
 
@@ -200,6 +225,11 @@ public class Character : MonoBehaviour, IPlayerControlActions, ICameraControlAct
     /// </summary>
     private void UpdateTransform()
     {
+        if (isLocal == false)
+        {
+            return;
+        }
+
         // アニメーターの現在のステートを取得
         currentBaseState = _animator.GetCurrentAnimatorStateInfo(0);
 

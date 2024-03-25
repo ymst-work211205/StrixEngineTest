@@ -5919,6 +5919,9 @@ GameObject:
   - component: {fileID: 3623123698365844984}
   - component: {fileID: 5653606614658947329}
   - component: {fileID: 3373734894390660894}
+  - component: {fileID: 5712952191694217668}
+  - component: {fileID: 6439942316728431483}
+  - component: {fileID: 8094497222277911956}
   m_Layer: 0
   m_Name: unitychan
   m_TagString: Player
@@ -6023,6 +6026,62 @@ MonoBehaviour:
   chatLogBox: {fileID: 0}
   chatLogPrefab: {fileID: 5754206393319293051, guid: 2894254726726994b8d44349de1bba83, type: 3}
   speechBubble: {fileID: 8407896999505220397}
+--- !u!114 &5712952191694217668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8057632326514541835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1308000454, guid: f2c2112f638c5b8489d16403d930373b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strixBehaviours:
+  - {fileID: 5653606614658947329}
+  - {fileID: 6439942316728431483}
+  - {fileID: 8094497222277911956}
+  objectType: 3
+  sendRate: 5
+  syncDestroy: 1
+  networkInstanceId: -1
+  InstantiableBy: 1
+  ConnectionClosedBehaviour: 1
+--- !u!114 &6439942316728431483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8057632326514541835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1762331577, guid: f2c2112f638c5b8489d16403d930373b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NearDistance: 0.02
+  MaxSpeed: 10
+  Acceleration: 100
+  Damping: 0
+  SyncPeriodMin: 50
+  SyncPeriodMax: 200
+  PredictionPeriod: 300
+--- !u!114 &8094497222277911956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8057632326514541835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -357823647, guid: f2c2112f638c5b8489d16403d930373b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animator: {fileID: 2852599549133985439}
+  SynchronizeStates: 1
+  ParameterSynchronizationFlags: 0101010101010100010000
 --- !u!1 &8085309334524559103
 GameObject:
   m_ObjectHideFlags: 0
@@ -7112,7 +7171,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 783642756802289148, guid: 41d2aa1a9c3c83448bc7011c10080580, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 783642756802289148, guid: 41d2aa1a9c3c83448bc7011c10080580, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -7252,7 +7311,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8642846833290820327, guid: 41d2aa1a9c3c83448bc7011c10080580, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8642846833290820327, guid: 41d2aa1a9c3c83448bc7011c10080580, type: 3}
       propertyPath: m_AnchoredPosition.y
