@@ -150,16 +150,27 @@ public class Character : StrixBehaviour, IPlayerControlActions, ICameraControlAc
     /// <param name="context"></param>
     public void OnShoot(InputAction.CallbackContext context)
     {
+        if(isLocal == false)
+        {
+            return;
+        }
+
         if (context.started)
         {
+#if false
             CallShootArrow(firePos.position, firePos.rotation);
+#else
+            RpcToAll(nameof(CallShootArrow), firePos.position, firePos.rotation);
+#endif
         }
     }
+
     /// <summary>
     /// 矢を発射する処理（「楓ちゃんが作ってくれた処理」の呼び出しなど）
     /// </summary>
     /// <param name="position">発射位置</param>
     /// <param name="rotation">発射角度</param>
+    [StrixRpc]
     private void CallShootArrow(Vector3 position, Quaternion rotation)
     {
         var bullet = Instantiate<Bullet>(bulletObject, position, rotation, null);
@@ -174,7 +185,11 @@ public class Character : StrixBehaviour, IPlayerControlActions, ICameraControlAc
     /// <param name="effPos">表示エフェクト位置情報</param>
     public void OnHit(Transform effPos)
     {
+#if false
         PlayEffect(effPos.position, effPos.rotation);
+#else
+        RpcToAll(nameof(PlayEffect), effPos.position, effPos.rotation);
+#endif
     }
 
     /// <summary>
@@ -182,6 +197,7 @@ public class Character : StrixBehaviour, IPlayerControlActions, ICameraControlAc
     /// </summary>
     /// <param name="position">表示エフェクト位置</param>
     /// <param name="rotation">表示エフェクト角度</param>
+    [StrixRpc]
     private void PlayEffect(Vector3 position, Quaternion rotation)
     {
         //エフェクトのオブジェクトを生成し、指定位置に配置する
