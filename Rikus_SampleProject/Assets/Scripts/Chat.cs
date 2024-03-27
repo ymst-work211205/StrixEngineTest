@@ -5,8 +5,14 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using static SampleControls;
+using SoftGear.Strix.Unity.Runtime;
+using SoftGear.Strix.Client.Core.Message;
 
+#if false
 public class Chat : MonoBehaviour, IChatActions
+#else
+public class Chat : StrixBehaviour, IChatActions
+#endif
 {
     // チャット入力欄
     [SerializeField] InputField chatInputField;
@@ -69,10 +75,15 @@ public class Chat : MonoBehaviour, IChatActions
             {
                 if (chatInputField.text != "")
                 {
+#if false
                     // チャットを送る
                     SendChat("", chatInputField.text, DateTime.Now);
                     // 吹き出しを表示登録
                     SetHukidashi(chatInputField.text);
+#else
+                    // 全体にチャットを送信
+                    RpcToAll(nameof(CallSendChat), chatInputField.text, DateTime.Now);
+#endif
 
                     // 入力を空にする
                     chatInputField.text = "";
@@ -92,6 +103,20 @@ public class Chat : MonoBehaviour, IChatActions
         // ログの追加
         var chatLogItem = Instantiate(chatLogPrefab, chatLogBox);
         chatLogItem.SetChat(name, message, time);
+    }
+
+    [StrixRpc]
+    public void CallSendChat(string message, DateTime time, StrixRpcContext context)
+    {
+        // ログを表示
+        SendChat(context.sender.GetName(), message, time);
+
+        // 吹き出しを表示
+        if(context.senderUid.Equals(strixReplicator.ownerUid))
+        {
+            // チャットを送ったキャラクターの場合
+            SetHukidashi(message);
+        }
     }
 
     /// <summary>
